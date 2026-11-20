@@ -1,8 +1,9 @@
+
 module.exports = {
-  transpileDependencies: true,
-  publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/UniNexora/'
+    : '/',
   productionSourceMap: false,
-  // ESLint is intentionally not included in this project to avoid
-  // configuration-related build failures. Vue CLI compiles the app normally.
-  lintOnSave: false
+  lintOnSave: false,
+  transpileDependencies: true
 };
