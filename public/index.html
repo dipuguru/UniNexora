@@ -14,5 +14,17 @@
   <body>
     <noscript><strong>UniNexora requires JavaScript to run. Please enable JavaScript.</strong></noscript>
     <div id="app"></div>
+    <script>
+  const redirect = sessionStorage.getItem("redirect");
+
+  if (redirect) {
+    sessionStorage.removeItem("redirect");
+    window.history.replaceState(
+      null,
+      "",
+      "/UniNexora/" + redirect
+    );
+  }
+</script>
   </body>
 </html>
