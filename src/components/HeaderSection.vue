@@ -12,11 +12,12 @@
 
       <nav class="main-nav" :class="{ 'is-open': menuOpen }" aria-label="Main navigation">
         <router-link class="nav-link" to="/" @click="closeMenu">Home</router-link>
-        <a class="nav-link" href="/#solutions" @click="closeMenu">Solutions</a>
-        <a class="nav-link" href="/#industries" @click="closeMenu">Industries</a>
-        <a class="nav-link" href="/#how-it-works" @click="closeMenu">How It Works</a>
+        <router-link class="nav-link" to="/solutions" @click="closeMenu">Solutions</router-link>
+        <router-link class="nav-link" to="/industries" @click="closeMenu">Industries</router-link>
+        <router-link class="nav-link" to="/how-it-works" @click="closeMenu">How It Works</router-link>
         <router-link class="nav-link" to="/about" @click="closeMenu">About Us</router-link>
       </nav>
+
 
       <router-link class="button button-primary header-cta" to="/contact" @click="closeMenu">Get in Touch <span
           aria-hidden="true">↗</span></router-link>

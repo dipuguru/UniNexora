@@ -1,12 +1,8 @@
 
-import {
-  createRouter,
-  createWebHistory
-} from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
-import ContactView from "../views/ContactView.vue";
 
 const routes = [
   {
@@ -15,14 +11,24 @@ const routes = [
     component: HomeView
   },
   {
+    path: "/solutions",
+    name: "Solutions",
+    component: HomeView
+  },
+  {
+    path: "/industries",
+    name: "Industries",
+    component: HomeView
+  },
+  {
+    path: "/how-it-works",
+    name: "HowItWorks",
+    component: HomeView
+  },
+  {
     path: "/about",
     name: "About",
     component: AboutView
-  },
-  {
-    path: "/contact",
-    name: "Contact",
-    component: ContactView
   },
   {
     path: "/:pathMatch(.*)*",
@@ -39,15 +45,26 @@ const router = createRouter({
       return savedPosition;
     }
 
-    if (to.hash) {
+    const sectionHashes = {
+      "/solutions": "#solutions",
+      "/industries": "#industries",
+      "/how-it-works": "#how-it-works"
+    };
+
+    const hash = to.hash || sectionHashes[to.path];
+
+    if (hash) {
       return {
-        el: to.hash,
+        el: hash,
         top: 90,
         behavior: "smooth"
       };
     }
 
-    return { top: 0 };
+    return {
+      top: 0,
+      behavior: "smooth"
+    };
   }
 });
 
